@@ -1,0 +1,1051 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<title>Tech &amp; Law Voluntariado – Universidad Científica del Sur</title>
+<meta name="description" content="Conectamos el derecho y la tecnología para construir soluciones que impulsen una sociedad más justa, informada y preparada para el futuro."/>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet"/>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --navy:#0d1b35;--blue:#1e3a8a;--blue-lt:#2f57c8;
+  --accent:#c8102e;--muted:#6b7280;--border:#e5e7eb;
+  --bg:#f8f9fb;--white:#fff;
+}
+body{font-family:'Inter',sans-serif;color:#1a1a2e;background:#fff;line-height:1.6}
+a{text-decoration:none;color:inherit}img{max-width:100%;display:block}ul{list-style:none}
+.container{max-width:1200px;margin:0 auto;padding:0 24px}
+
+/* PAGE SWITCHING */
+.page{display:none}.page.active{display:block}
+
+/* TOPBAR */
+.topbar{background:var(--navy);color:rgba(255,255,255,.7);font-size:.72rem;padding:6px 0;text-align:center}
+.topbar a{color:rgba(255,255,255,.85)}
+
+/* HEADER */
+.site-header{background:#fff;border-bottom:1px solid var(--border);position:sticky;top:0;z-index:100;box-shadow:0 2px 8px rgba(0,0,0,.06)}
+.header-inner{display:flex;align-items:center;justify-content:space-between;height:66px;gap:16px}
+.logo{display:flex;align-items:center;gap:10px;cursor:pointer;flex-shrink:0}
+.logo img{height:42px;width:auto}
+.logo-text .brand{font-size:1.05rem;font-weight:800;color:var(--navy);letter-spacing:-.02em}
+.logo-text .sub{font-size:.58rem;font-weight:600;color:var(--muted);letter-spacing:.2em;text-transform:uppercase}
+.main-nav{display:flex;align-items:center;gap:2px}
+.main-nav a{font-size:.75rem;font-weight:500;color:#1a1a2e;padding:6px 9px;border-radius:4px;cursor:pointer;white-space:nowrap;transition:color .2s,background .2s}
+.main-nav a:hover,.main-nav a.active{color:var(--blue);background:rgba(30,58,138,.06)}
+.main-nav a.active{font-weight:700;border-bottom:2px solid var(--blue);border-radius:0}
+.header-actions{display:flex;align-items:center;gap:10px;flex-shrink:0}
+.btn-join{background:var(--navy);color:#fff;font-size:.78rem;font-weight:700;padding:8px 18px;border-radius:4px;cursor:pointer;transition:background .2s;white-space:nowrap}
+.btn-join:hover{background:var(--blue)}
+.hamburger{display:none;background:none;border:none;cursor:pointer;padding:4px}
+.hamburger span{display:block;width:22px;height:2px;background:var(--navy);margin:5px 0;border-radius:2px}
+.mobile-nav{display:none;background:#fff;border-top:1px solid var(--border);padding:12px 0}
+.mobile-nav.open{display:block}
+.mobile-nav a{display:block;padding:10px 24px;font-size:.88rem;border-bottom:1px solid var(--border);cursor:pointer}
+.mobile-nav a:hover{background:var(--bg);color:var(--blue)}
+
+/* BUTTONS */
+.btn-primary{display:inline-block;background:var(--navy);color:#fff;font-weight:700;font-size:.83rem;padding:11px 22px;border-radius:4px;cursor:pointer;transition:background .2s}
+.btn-primary:hover{background:var(--blue)}
+.btn-outline{display:inline-block;border:2px solid var(--navy);color:var(--navy);font-weight:700;font-size:.83rem;padding:9px 22px;border-radius:4px;cursor:pointer;transition:all .2s}
+.btn-outline:hover{background:var(--navy);color:#fff}
+.btn-accent{display:inline-block;background:var(--accent);color:#fff;font-weight:700;font-size:.82rem;padding:10px 20px;border-radius:4px;cursor:pointer;transition:background .2s}
+.btn-accent:hover{background:#a50d26}
+.read-more{display:inline-flex;align-items:center;gap:6px;font-weight:700;font-size:.82rem;color:var(--navy);cursor:pointer;transition:gap .2s}
+.read-more:hover{gap:10px;color:var(--blue)}
+
+/* SECTION LABEL */
+.section-label{font-size:.62rem;font-weight:800;letter-spacing:.18em;text-transform:uppercase;color:var(--blue-lt);margin-bottom:18px;display:flex;align-items:center;gap:8px}
+.section-label::after{content:'';flex:1;height:1px;background:var(--border)}
+
+/* PAGE HERO */
+.page-hero{background:var(--navy);color:#fff;padding:60px 0;position:relative;overflow:hidden}
+.page-hero::before{content:'';position:absolute;top:-80px;right:-80px;width:300px;height:300px;background:radial-gradient(circle,rgba(47,87,200,.3) 0%,transparent 70%)}
+.page-hero .breadcrumb{font-size:.72rem;color:rgba(255,255,255,.5);margin-bottom:14px}
+.page-hero .breadcrumb span{cursor:pointer;color:rgba(255,255,255,.7)}
+.page-hero .breadcrumb span:hover{color:#fff}
+.page-hero h1{font-size:clamp(1.6rem,4vw,2.6rem);font-weight:800;max-width:680px;line-height:1.2;margin-bottom:14px}
+.page-hero p{font-size:.95rem;color:rgba(255,255,255,.75);max-width:560px;line-height:1.7}
+
+/* DIVIDER */
+.divider{height:1px;background:var(--border);margin:44px 0}
+
+/* ========== HOME ========== */
+.hero{background:#fff;overflow:hidden}
+.hero-inner{display:grid;grid-template-columns:1fr 1fr;min-height:360px}
+.hero-content{padding:60px 40px 60px 0;display:flex;flex-direction:column;justify-content:center}
+.hero-content h1{font-size:clamp(1.9rem,3.5vw,2.8rem);font-weight:800;line-height:1.15;color:var(--navy);margin-bottom:18px}
+.hero-content h1 em{font-style:italic;color:var(--blue-lt)}
+.hero-content p{font-size:.95rem;color:var(--muted);max-width:400px;margin-bottom:28px;line-height:1.7}
+.hero-actions{display:flex;gap:12px;flex-wrap:wrap}
+.hero-image{position:relative;overflow:hidden}
+.hero-image img{width:100%;height:100%;object-fit:cover}
+.hero-image::after{content:'';position:absolute;inset:0;background:linear-gradient(135deg,rgba(13,27,53,.25) 0%,transparent 60%)}
+.hero-corner{position:absolute;width:20px;height:20px;border-color:rgba(255,255,255,.8);border-style:solid;z-index:2}
+.hero-corner.tl{top:12px;left:12px;border-width:2px 0 0 2px}
+.hero-corner.br{bottom:12px;right:12px;border-width:0 2px 2px 0}
+
+/* STATS BAR */
+.stats-bar{background:var(--bg);border-top:1px solid var(--border);border-bottom:1px solid var(--border);padding:28px 0}
+.stats-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:20px;text-align:center}
+.stat-num{font-size:1.9rem;font-weight:800;color:var(--navy);line-height:1;margin-bottom:4px}
+.stat-label{font-size:.78rem;color:var(--muted);font-weight:500}
+
+/* MAIN LAYOUT */
+.main-layout{display:grid;grid-template-columns:1fr 290px;gap:44px;padding:44px 0}
+
+/* FEATURED */
+.featured-card{display:grid;grid-template-columns:1fr 1fr;border:1px solid var(--border);border-radius:6px;overflow:hidden;margin-bottom:44px;cursor:pointer;transition:box-shadow .2s}
+.featured-card:hover{box-shadow:0 8px 28px rgba(0,0,0,.1)}
+.featured-text{padding:32px;display:flex;flex-direction:column}
+.featured-tag{font-size:.62rem;font-weight:700;letter-spacing:.15em;text-transform:uppercase;color:var(--blue-lt);margin-bottom:10px}
+.featured-text h2{font-size:1.65rem;font-weight:800;color:var(--navy);line-height:1.2;margin-bottom:14px}
+.featured-text p{color:var(--muted);font-size:.88rem;line-height:1.7;flex:1;margin-bottom:20px}
+.featured-image{min-height:280px;overflow:hidden}
+.featured-image img{width:100%;height:100%;object-fit:cover;transition:transform .4s}
+.featured-card:hover .featured-image img{transform:scale(1.03)}
+
+/* NEWS LIST */
+.news-list{display:flex;flex-direction:column}
+.news-item{display:grid;grid-template-columns:110px 1fr;gap:14px;padding:18px 0;border-bottom:1px solid var(--border);cursor:pointer;transition:background .2s}
+.news-item:first-child{border-top:1px solid var(--border)}
+.news-item:hover{background:var(--bg);margin:0 -10px;padding:18px 10px}
+.news-thumb{width:110px;height:74px;overflow:hidden;border-radius:4px}
+.news-thumb img{width:100%;height:100%;object-fit:cover}
+.news-category{font-size:.58rem;font-weight:700;letter-spacing:.15em;text-transform:uppercase;color:var(--blue-lt);margin-bottom:5px}
+.news-meta h3{font-size:.9rem;font-weight:700;color:var(--navy);line-height:1.3;margin-bottom:5px}
+.news-meta p{font-size:.8rem;color:var(--muted);line-height:1.5;margin-bottom:7px}
+
+/* PRESS */
+.press-section{margin-top:44px}
+.press-grid{display:grid;grid-template-columns:1fr 1fr;gap:0}
+.press-main{padding-right:28px;border-right:1px solid var(--border)}
+.press-main-thumb{width:100%;height:190px;overflow:hidden;border-radius:6px;margin-bottom:14px}
+.press-main-thumb img{width:100%;height:100%;object-fit:cover}
+.press-tag{font-size:.58rem;font-weight:700;letter-spacing:.15em;text-transform:uppercase;color:var(--blue-lt);margin-bottom:7px}
+.press-main h3{font-size:1.05rem;font-weight:800;color:var(--navy);margin-bottom:9px;line-height:1.3}
+.press-main p{font-size:.83rem;color:var(--muted);line-height:1.6;margin-bottom:11px}
+.press-list{padding-left:28px;display:flex;flex-direction:column}
+.press-list-item{padding:14px 0;border-bottom:1px solid var(--border)}
+.press-list-item:first-child{padding-top:0}
+.press-list-item .date{font-size:.68rem;color:var(--muted);margin-bottom:4px}
+.badge{display:inline-block;font-size:.58rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;background:rgba(30,58,138,.07);color:var(--blue);padding:2px 7px;border-radius:10px;margin-left:4px}
+.press-list-item h4{font-size:.85rem;font-weight:700;color:var(--navy);line-height:1.3;cursor:pointer}
+.press-list-item h4:hover{color:var(--blue)}
+
+/* SIDEBAR */
+.sidebar{display:flex;flex-direction:column;gap:36px}
+.sidebar-section h4{font-size:.62rem;font-weight:800;letter-spacing:.18em;text-transform:uppercase;color:var(--blue-lt);margin-bottom:4px}
+.sidebar-section>p{font-size:.78rem;color:var(--muted);margin-bottom:14px}
+.team-list{display:flex;flex-direction:column;gap:2px}
+.team-item{display:flex;align-items:center;gap:10px;padding:9px 10px;border-radius:6px;border:1px solid transparent;cursor:pointer;transition:all .2s}
+.team-item:hover{border-color:var(--border);background:var(--bg)}
+.team-icon{width:34px;height:34px;background:rgba(30,58,138,.07);border-radius:7px;display:flex;align-items:center;justify-content:center;font-size:.95rem;flex-shrink:0}
+.team-item-text{flex:1;font-size:.83rem;font-weight:600;color:var(--navy)}
+.team-arrow{color:var(--muted);font-size:.88rem}
+.see-all{display:inline-flex;align-items:center;gap:6px;font-size:.8rem;font-weight:700;color:var(--blue);margin-top:9px;cursor:pointer;transition:gap .2s}
+.see-all:hover{gap:10px}
+.most-read-list{display:flex;flex-direction:column}
+.most-read-item{display:flex;gap:11px;align-items:flex-start;padding:11px 0;border-bottom:1px solid var(--border)}
+.most-read-item:first-child{border-top:1px solid var(--border)}
+.most-read-num{font-size:1.3rem;font-weight:800;color:var(--border);min-width:26px;line-height:1;padding-top:2px}
+.most-read-item h5{font-size:.83rem;font-weight:600;color:var(--navy);line-height:1.4;cursor:pointer}
+.most-read-item h5:hover{color:var(--blue)}
+.sidebar-cta{background:var(--navy);border-radius:8px;padding:26px 18px;color:#fff;position:relative;overflow:hidden}
+.sidebar-cta::before{content:'';position:absolute;top:-40px;right:-40px;width:110px;height:110px;background:rgba(255,255,255,.04);border-radius:50%}
+.sidebar-cta .eyebrow{font-size:.58rem;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:rgba(255,255,255,.6);margin-bottom:9px}
+.sidebar-cta h3{font-size:1.15rem;font-weight:800;margin-bottom:9px;line-height:1.25}
+.sidebar-cta p{font-size:.78rem;color:rgba(255,255,255,.7);margin-bottom:18px;line-height:1.6}
+
+/* FOOTER */
+.site-footer{background:var(--navy);color:rgba(255,255,255,.75);padding:52px 0 0;margin-top:60px}
+.footer-grid{display:grid;grid-template-columns:1.5fr 1fr 1fr 1fr 1.3fr;gap:36px;padding-bottom:44px}
+.footer-brand p{font-size:.78rem;color:rgba(255,255,255,.6);line-height:1.7;margin:14px 0 18px;max-width:210px}
+.social-links{display:flex;gap:7px}
+.social-link{width:30px;height:30px;border:1px solid rgba(255,255,255,.2);border-radius:6px;display:flex;align-items:center;justify-content:center;font-size:.75rem;color:rgba(255,255,255,.6);cursor:pointer;transition:all .2s}
+.social-link:hover{background:rgba(255,255,255,.1);color:#fff;border-color:rgba(255,255,255,.4)}
+.footer-col h5{font-size:.67rem;font-weight:800;letter-spacing:.15em;text-transform:uppercase;color:#fff;margin-bottom:14px}
+.footer-col ul{display:flex;flex-direction:column;gap:7px}
+.footer-col ul li a,.footer-col ul li span{font-size:.8rem;color:rgba(255,255,255,.6);cursor:pointer;transition:color .2s}
+.footer-col ul li a:hover,.footer-col ul li span:hover{color:#fff}
+.footer-contact p{font-size:.8rem;color:rgba(255,255,255,.6);margin-bottom:5px;line-height:1.5}
+.footer-contact strong{color:rgba(255,255,255,.9)}
+.footer-bottom{border-top:1px solid rgba(255,255,255,.1);padding:18px 0;display:flex;justify-content:space-between;align-items:center;font-size:.75rem;color:rgba(255,255,255,.4)}
+
+/* ========== QUIENES SOMOS ========== */
+.value-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(270px,1fr));gap:20px;margin-top:28px}
+.value-card{padding:26px;border:1px solid var(--border);border-radius:8px;border-left:4px solid var(--blue)}
+.value-card .icon{font-size:1.4rem;margin-bottom:10px}
+.value-card h3{font-size:.92rem;font-weight:700;color:var(--navy);margin-bottom:7px}
+.value-card p{font-size:.83rem;color:var(--muted);line-height:1.6}
+.team-cards{display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:20px;margin-top:28px}
+.team-card{border:1px solid var(--border);border-radius:8px;overflow:hidden;transition:box-shadow .2s,transform .2s}
+.team-card:hover{box-shadow:0 8px 24px rgba(0,0,0,.1);transform:translateY(-2px)}
+.team-card-img{width:100%;height:180px;background:linear-gradient(135deg,var(--navy),var(--blue));display:flex;align-items:center;justify-content:center;font-size:2.8rem;color:rgba(255,255,255,.25)}
+.team-card-body{padding:18px}
+.team-card-body h3{font-size:.95rem;font-weight:700;color:var(--navy);margin-bottom:3px}
+.team-card-body .role{font-size:.75rem;color:var(--blue-lt);font-weight:600;margin-bottom:7px}
+.team-card-body p{font-size:.8rem;color:var(--muted);line-height:1.5}
+.timeline-item{display:grid;grid-template-columns:100px 1fr;gap:20px;padding:22px 0;border-bottom:1px solid var(--border);align-items:start}
+.timeline-year{font-size:.73rem;font-weight:700;color:var(--blue-lt);padding-top:3px;white-space:nowrap}
+.timeline-content h3{font-size:.95rem;font-weight:700;color:var(--navy);margin-bottom:5px}
+.timeline-content p{font-size:.83rem;color:var(--muted);line-height:1.6}
+.area-tag{padding:14px 18px;border:1px solid var(--border);border-radius:6px;font-size:.85rem;color:var(--navy);font-weight:600;display:flex;gap:9px;align-items:center}
+.area-tag::before{content:'▸';color:var(--blue-lt)}
+
+/* ========== CONGRESO ========== */
+.congress-hero{background:linear-gradient(135deg,#0d1b35 0%,#1e3a8a 100%);color:#fff;padding:76px 0;position:relative;overflow:hidden}
+.congress-hero::before{content:'';position:absolute;top:-100px;right:-100px;width:380px;height:380px;background:radial-gradient(circle,rgba(255,255,255,.05) 0%,transparent 70%)}
+.congress-badge{display:inline-block;background:rgba(255,255,255,.15);border:1px solid rgba(255,255,255,.3);color:#fff;font-size:.68rem;font-weight:700;letter-spacing:.15em;text-transform:uppercase;padding:5px 13px;border-radius:20px;margin-bottom:18px}
+.congress-hero h1{font-size:clamp(2rem,5vw,3.4rem);font-weight:800;line-height:1.1;margin-bottom:18px}
+.congress-hero h1 em{color:#7dd3fc;font-style:normal}
+.congress-hero p{font-size:1rem;color:rgba(255,255,255,.8);max-width:580px;line-height:1.7;margin-bottom:28px}
+.congress-meta{display:flex;flex-wrap:wrap;gap:22px;margin-top:28px}
+.congress-meta-item{display:flex;align-items:center;gap:7px;font-size:.85rem;color:rgba(255,255,255,.8)}
+.congress-meta-item strong{color:#fff}
+.speakers-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(190px,1fr));gap:18px;margin-top:28px}
+.speaker-card{text-align:center;padding:22px 14px;border:1px solid var(--border);border-radius:8px;transition:box-shadow .2s}
+.speaker-card:hover{box-shadow:0 4px 16px rgba(0,0,0,.08)}
+.speaker-avatar{width:72px;height:72px;border-radius:50%;background:linear-gradient(135deg,var(--navy),var(--blue));display:flex;align-items:center;justify-content:center;font-size:1.6rem;color:rgba(255,255,255,.35);margin:0 auto 12px}
+.speaker-card h3{font-size:.87rem;font-weight:700;color:var(--navy);margin-bottom:3px}
+.speaker-card p{font-size:.73rem;color:var(--muted);line-height:1.4}
+.agenda-item{display:grid;grid-template-columns:110px 1fr;gap:18px;padding:14px 0;border-bottom:1px solid var(--border);align-items:start}
+.agenda-time{font-size:.78rem;font-weight:700;color:var(--blue);padding-top:2px}
+.agenda-content h4{font-size:.88rem;font-weight:700;color:var(--navy);margin-bottom:3px}
+.agenda-content p{font-size:.8rem;color:var(--muted)}
+.highlight-box{background:linear-gradient(135deg,var(--navy),var(--blue));color:#fff;border-radius:10px;padding:38px;margin-top:44px;text-align:center}
+.highlight-box h3{font-size:1.25rem;font-weight:800;margin-bottom:11px}
+.highlight-box p{color:rgba(255,255,255,.8);font-size:.88rem;line-height:1.7;max-width:540px;margin:0 auto 22px}
+
+/* ========== EQUIPOS ========== */
+.equipo-card{border:1px solid var(--border);border-radius:10px;overflow:hidden;transition:box-shadow .2s,transform .2s;margin-bottom:20px}
+.equipo-card:hover{box-shadow:0 10px 28px rgba(0,0,0,.1);transform:translateY(-2px)}
+.equipo-header{padding:28px;display:flex;align-items:center;gap:18px}
+.equipo-icon-big{width:54px;height:54px;background:rgba(30,58,138,.07);border-radius:13px;display:flex;align-items:center;justify-content:center;font-size:1.65rem;flex-shrink:0}
+.equipo-header h2{font-size:1.05rem;font-weight:800;color:var(--navy);margin-bottom:3px}
+.equipo-header p{font-size:.8rem;color:var(--muted)}
+.equipo-body{padding:0 28px 28px;border-top:1px solid var(--border)}
+.equipo-body>p{font-size:.85rem;color:var(--muted);line-height:1.7;padding-top:18px;margin-bottom:18px}
+.equipo-activity{display:flex;align-items:flex-start;gap:9px;font-size:.83rem;color:#1a1a2e;margin-bottom:7px}
+.equipo-activity::before{content:'▸';color:var(--blue-lt);font-size:.78rem;flex-shrink:0;margin-top:2px}
+
+/* ========== PROYECTOS ========== */
+.project-card{border:1px solid var(--border);border-radius:8px;overflow:hidden;transition:box-shadow .2s,transform .2s;display:flex;flex-direction:column}
+.project-card:hover{box-shadow:0 8px 24px rgba(0,0,0,.1);transform:translateY(-2px)}
+.project-img{width:100%;height:170px;overflow:hidden;background:linear-gradient(135deg,var(--navy),var(--blue));display:flex;align-items:center;justify-content:center;font-size:2.8rem;color:rgba(255,255,255,.22)}
+.project-img img{width:100%;height:100%;object-fit:cover}
+.project-body{padding:20px;flex:1;display:flex;flex-direction:column}
+.project-status{display:inline-block;font-size:.62rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;padding:3px 9px;border-radius:10px;margin-bottom:9px}
+.status-active{background:rgba(16,185,129,.1);color:#059669}
+.status-completed{background:rgba(30,58,138,.08);color:var(--blue)}
+.status-upcoming{background:rgba(234,179,8,.1);color:#b45309}
+.project-body h3{font-size:.93rem;font-weight:700;color:var(--navy);margin-bottom:7px;line-height:1.3}
+.project-body p{font-size:.81rem;color:var(--muted);line-height:1.65;flex:1;margin-bottom:14px}
+.project-team{display:flex;align-items:center;gap:7px;font-size:.73rem;color:var(--muted);margin-top:auto;padding-top:11px;border-top:1px solid var(--border);flex-wrap:wrap}
+.team-tag{background:rgba(30,58,138,.06);color:var(--blue);padding:2px 7px;border-radius:10px;font-weight:600;font-size:.68rem}
+
+/* ========== EVENTOS ========== */
+.event-card{display:grid;grid-template-columns:88px 1fr auto;gap:18px;align-items:start;padding:22px;border:1px solid var(--border);border-radius:8px;margin-bottom:14px;transition:box-shadow .2s}
+.event-card:hover{box-shadow:0 4px 18px rgba(0,0,0,.08)}
+.event-date-box{background:var(--navy);color:#fff;border-radius:7px;padding:14px 7px;text-align:center}
+.event-date-box .month{font-size:.62rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:rgba(255,255,255,.7)}
+.event-date-box .day{font-size:1.85rem;font-weight:800;line-height:1}
+.event-date-box .year{font-size:.68rem;color:rgba(255,255,255,.6);margin-top:2px}
+.event-info h3{font-size:.95rem;font-weight:700;color:var(--navy);margin-bottom:5px;line-height:1.3}
+.event-info p{font-size:.81rem;color:var(--muted);line-height:1.6;margin-bottom:9px}
+.event-tags{display:flex;flex-wrap:wrap;gap:5px}
+.event-tag{font-size:.62rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;padding:3px 8px;border-radius:10px;background:rgba(30,58,138,.07);color:var(--blue)}
+.event-tag.red{background:rgba(200,16,46,.08);color:var(--accent)}
+.event-tag.green{background:rgba(16,185,129,.1);color:#059669}
+.event-action{display:flex;flex-direction:column;align-items:flex-end;gap:7px;padding-top:4px}
+.btn-sm{font-size:.76rem;font-weight:700;padding:7px 14px;border-radius:4px;white-space:nowrap;cursor:pointer}
+.btn-sm.primary{background:var(--navy);color:#fff;border:none;transition:background .2s}
+.btn-sm.primary:hover{background:var(--blue)}
+.btn-sm.outline{border:1.5px solid var(--border);color:var(--muted);background:none;transition:all .2s}
+.btn-sm.outline:hover{border-color:var(--navy);color:var(--navy)}
+.past-label{font-size:.7rem;color:var(--muted);font-style:italic}
+
+/* ========== NOTICIAS ========== */
+.filter-bar{display:flex;gap:7px;flex-wrap:wrap;margin-bottom:28px}
+.filter-btn{font-size:.76rem;font-weight:600;padding:6px 14px;border-radius:20px;border:1.5px solid var(--border);background:transparent;color:var(--muted);cursor:pointer;transition:all .2s}
+.filter-btn:hover,.filter-btn.active{background:var(--navy);color:#fff;border-color:var(--navy)}
+.news-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:22px}
+.article-card{border:1px solid var(--border);border-radius:8px;overflow:hidden;transition:box-shadow .2s,transform .2s;display:flex;flex-direction:column;cursor:pointer}
+.article-card:hover{box-shadow:0 8px 22px rgba(0,0,0,.09);transform:translateY(-2px)}
+.article-thumb{width:100%;height:170px;overflow:hidden;background:linear-gradient(135deg,var(--navy),var(--blue))}
+.article-thumb img{width:100%;height:100%;object-fit:cover;transition:transform .4s}
+.article-card:hover .article-thumb img{transform:scale(1.04)}
+.article-body{padding:18px;flex:1;display:flex;flex-direction:column}
+.article-cat{font-size:.6rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--blue-lt);margin-bottom:7px}
+.article-body h3{font-size:.9rem;font-weight:700;color:var(--navy);line-height:1.35;margin-bottom:7px}
+.article-body p{font-size:.8rem;color:var(--muted);line-height:1.65;flex:1;margin-bottom:14px}
+.article-footer{display:flex;align-items:center;justify-content:space-between;padding-top:11px;border-top:1px solid var(--border);font-size:.73rem;color:var(--muted)}
+.article-footer .read-more-sm{font-size:.76rem;font-weight:700;color:var(--navy);cursor:pointer}
+.article-footer .read-more-sm:hover{color:var(--blue)}
+.featured-article{display:grid;grid-template-columns:1fr 1fr;border:1px solid var(--border);border-radius:8px;overflow:hidden;margin-bottom:36px;cursor:pointer;transition:box-shadow .2s}
+.featured-article:hover{box-shadow:0 8px 26px rgba(0,0,0,.09)}
+.featured-article .article-thumb{height:100%;min-height:260px}
+.featured-article .article-body{padding:32px;justify-content:center}
+.featured-article .article-body h3{font-size:1.3rem}
+
+/* ========== CONTACTO ========== */
+.contact-layout{display:grid;grid-template-columns:1fr 400px;gap:52px;align-items:start;margin-top:44px}
+.form-card{background:#fff;border:1px solid var(--border);border-radius:10px;padding:36px}
+.form-card h2{font-size:1.2rem;font-weight:800;color:var(--navy);margin-bottom:5px}
+.form-card>p{font-size:.85rem;color:var(--muted);margin-bottom:24px;line-height:1.6}
+.form-group{margin-bottom:18px}
+.form-group label{display:block;font-size:.78rem;font-weight:600;color:var(--navy);margin-bottom:5px}
+.form-group input,.form-group select,.form-group textarea{width:100%;padding:9px 13px;border:1.5px solid var(--border);border-radius:6px;font-size:.85rem;font-family:inherit;color:#1a1a2e;background:#fff;transition:border-color .2s;outline:none}
+.form-group input:focus,.form-group select:focus,.form-group textarea:focus{border-color:var(--blue-lt)}
+.form-group textarea{resize:vertical;min-height:100px}
+.form-row{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.form-submit{width:100%;background:var(--navy);color:#fff;font-weight:700;font-size:.88rem;padding:12px;border:none;border-radius:6px;cursor:pointer;letter-spacing:.04em;transition:background .2s;margin-top:4px;font-family:inherit}
+.form-submit:hover{background:var(--blue)}
+.form-note{font-size:.73rem;color:var(--muted);text-align:center;margin-top:10px;line-height:1.5}
+.contact-sidebar{display:flex;flex-direction:column;gap:20px}
+.info-card{border:1px solid var(--border);border-radius:10px;padding:26px}
+.info-card h3{font-size:.88rem;font-weight:700;color:var(--navy);margin-bottom:14px}
+.info-item{display:flex;gap:11px;align-items:flex-start;margin-bottom:14px;font-size:.83rem}
+.info-item:last-child{margin-bottom:0}
+.info-icon{width:32px;height:32px;background:rgba(30,58,138,.07);border-radius:7px;display:flex;align-items:center;justify-content:center;font-size:.95rem;flex-shrink:0}
+.info-item strong{display:block;color:var(--navy);font-size:.8rem;margin-bottom:2px}
+.info-item span{color:var(--muted);font-size:.8rem;line-height:1.5}
+.benefits-list{display:flex;flex-direction:column;gap:9px}
+.benefit-item{display:flex;align-items:flex-start;gap:9px;font-size:.83rem;color:#1a1a2e;line-height:1.5}
+.benefit-item::before{content:'✓';color:#059669;font-weight:700;flex-shrink:0;margin-top:1px}
+.success-msg{display:none;background:rgba(16,185,129,.07);border:1.5px solid rgba(16,185,129,.3);border-radius:8px;padding:22px;text-align:center;margin-top:18px}
+
+/* JOIN BANNER */
+.join-banner{background:linear-gradient(135deg,var(--navy),var(--blue));border-radius:10px;padding:44px;text-align:center;color:#fff;margin-top:56px}
+.join-banner h2{font-size:1.7rem;font-weight:800;margin-bottom:11px}
+.join-banner p{color:rgba(255,255,255,.8);font-size:.92rem;margin-bottom:26px;max-width:480px;margin-left:auto;margin-right:auto}
+
+/* TWO-COL GRID */
+.two-col{display:grid;grid-template-columns:1fr 1fr;gap:44px}
+.two-col-3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:22px}
+.projects-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(290px,1fr));gap:22px}
+
+/* RESPONSIVE */
+@media(max-width:1024px){
+  .main-layout{grid-template-columns:1fr}
+  .footer-grid{grid-template-columns:1fr 1fr}
+  .congress-hero h1{font-size:2.2rem}
+}
+@media(max-width:768px){
+  .hero-inner{grid-template-columns:1fr}
+  .hero-image{min-height:200px}
+  .hero-content{padding:36px 0}
+  .featured-card{grid-template-columns:1fr}
+  .featured-image{min-height:200px}
+  .press-grid{grid-template-columns:1fr}
+  .press-main{padding-right:0;border-right:none}
+  .press-list{padding-left:0;margin-top:28px}
+  .stats-grid{grid-template-columns:repeat(2,1fr)}
+  .footer-grid{grid-template-columns:1fr}
+  .footer-bottom{flex-direction:column;gap:7px;text-align:center}
+  .main-nav{display:none}
+  .hamburger{display:block}
+  .two-col{grid-template-columns:1fr}
+  .contact-layout{grid-template-columns:1fr}
+  .form-row{grid-template-columns:1fr}
+  .featured-article{grid-template-columns:1fr}
+  .featured-article .article-thumb{height:200px}
+  .event-card{grid-template-columns:1fr}
+  .event-action{flex-direction:row}
+  .agenda-item{grid-template-columns:90px 1fr}
+}
+@media(max-width:480px){
+  .hero-content h1{font-size:1.7rem}
+  .stats-grid{grid-template-columns:1fr 1fr}
+  .team-cards{grid-template-columns:1fr}
+  .value-grid{grid-template-columns:1fr}
+  .speakers-grid{grid-template-columns:1fr 1fr}
+}
+</style>
+</head>
+<body>
+
+<!-- TOPBAR -->
+<div class="topbar">
+  Voluntariado de la Escuela de Derecho &nbsp;·&nbsp;
+  <a href="https://clac.cientifica.edu.pe/iniciativa-tech-law/" target="_blank" rel="noopener">Universidad Científica del Sur</a>
+</div>
+
+<!-- HEADER -->
+<header class="site-header">
+  <div class="container header-inner">
+    <div class="logo" onclick="showPage('home')">
+      <img src="assets/logo.png" alt="Tech &amp; Law" onerror="this.style.display='none'"/>
+      <div class="logo-text">
+        <div class="brand">TECH &amp; LAW</div>
+        <div class="sub">Voluntariado</div>
+      </div>
+    </div>
+    <nav class="main-nav">
+      <a onclick="showPage('home')" data-page="home" class="active">Inicio</a>
+      <a onclick="showPage('quienes')" data-page="quienes">Quiénes somos</a>
+      <a onclick="showPage('equipos')" data-page="equipos">Equipos</a>
+      <a onclick="showPage('proyectos')" data-page="proyectos">Proyectos</a>
+      <a onclick="showPage('eventos')" data-page="eventos">Eventos</a>
+      <a onclick="showPage('noticias')" data-page="noticias">Noticias</a>
+      <a onclick="showPage('congreso')" data-page="congreso">Congreso LegalTech</a>
+      <a onclick="showPage('contacto')" data-page="contacto">Contacto</a>
+    </nav>
+    <div class="header-actions">
+      <span class="btn-join" onclick="showPage('contacto')">ÚNETE</span>
+      <button class="hamburger" onclick="toggleMobile()" aria-label="Menú">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </div>
+  <nav class="mobile-nav" id="mobileNav">
+    <a onclick="showPage('home');toggleMobile()">Inicio</a>
+    <a onclick="showPage('quienes');toggleMobile()">Quiénes somos</a>
+    <a onclick="showPage('equipos');toggleMobile()">Equipos</a>
+    <a onclick="showPage('proyectos');toggleMobile()">Proyectos</a>
+    <a onclick="showPage('eventos');toggleMobile()">Eventos</a>
+    <a onclick="showPage('noticias');toggleMobile()">Noticias</a>
+    <a onclick="showPage('congreso');toggleMobile()">Congreso LegalTech</a>
+    <a onclick="showPage('contacto');toggleMobile()">Contacto</a>
+    <a onclick="showPage('contacto');toggleMobile()" style="font-weight:700;color:var(--blue)">ÚNETE</a>
+  </nav>
+</header>
+
+<!-- ==================== HOME ==================== -->
+<div id="page-home" class="page active">
+
+  <section class="hero">
+    <div class="container">
+      <div class="hero-inner">
+        <div class="hero-content">
+          <h1>Derecho que innova.<br>Tecnología que <em>transforma.</em></h1>
+          <p>Conectamos el derecho y la tecnología para construir soluciones que impulsen una sociedad más justa, informada y preparada para el futuro.</p>
+          <div class="hero-actions">
+            <span class="btn-primary" onclick="showPage('quienes')">CONÓCENOS</span>
+            <span class="btn-outline" onclick="showPage('proyectos')">VER PROYECTOS</span>
+          </div>
+        </div>
+        <div class="hero-image">
+          <img src="https://images.unsplash.com/photo-1589829085413-56de8ae18c73?w=800&q=80" alt="Derecho y Tecnología" loading="lazy"/>
+          <div class="hero-corner tl"></div>
+          <div class="hero-corner br"></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="stats-bar">
+    <div class="container">
+      <div class="stats-grid">
+        <div><div class="stat-num" data-target="120" data-suffix="+">120+</div><div class="stat-label">Miembros activos</div></div>
+        <div><div class="stat-num" data-target="3">3</div><div class="stat-label">Congresos realizados</div></div>
+        <div><div class="stat-num" data-target="20" data-suffix="+">20+</div><div class="stat-label">Proyectos de investigación</div></div>
+        <div><div class="stat-num" data-target="15" data-suffix="+">15+</div><div class="stat-label">Alianzas institucionales</div></div>
+      </div>
+    </div>
+  </div>
+
+  <main class="container">
+    <div class="main-layout">
+      <div>
+        <p class="section-label">Destacado</p>
+        <div class="featured-card" onclick="showPage('congreso')">
+          <div class="featured-text">
+            <div class="featured-tag">Congreso Internacional</div>
+            <h2>LegalTech Global Forum 2025</h2>
+            <p>Explora las ideas que están redefiniendo el futuro del derecho y la tecnología. El encuentro más importante del ecosistema jurídico digital en el Perú.</p>
+            <span class="read-more">Leer más <span>→</span></span>
+          </div>
+          <div class="featured-image">
+            <img src="https://images.unsplash.com/photo-1540575467063-178a50c2df87?w=700&q=80" alt="LegalTech Global Forum 2025" loading="lazy"/>
+          </div>
+        </div>
+
+        <p class="section-label">Noticias recientes</p>
+        <div class="news-list">
+          <div class="news-item" onclick="showPage('noticias')">
+            <div class="news-thumb"><img src="https://clac.cientifica.edu.pe/wp-content/uploads/2025/11/Captura-de-Pantalla-2025-11-19-a-las-18.01.05.png" alt="Mapeo LegalTech" loading="lazy"/></div>
+            <div class="news-meta">
+              <div class="news-category">Boletín mensual</div>
+              <h3>Boletín Tech &amp; Law – Mayo 2025</h3>
+              <p>Resumen de actividades, logros y oportunidades del mes.</p>
+              <span class="read-more" style="font-size:.78rem">Leer más <span>→</span></span>
+            </div>
+          </div>
+          <div class="news-item" onclick="showPage('noticias')">
+            <div class="news-thumb"><img src="https://images.unsplash.com/photo-1507679799987-c73779587ccf?w=300&q=75" alt="" loading="lazy"/></div>
+            <div class="news-meta">
+              <div class="news-category">Investigación</div>
+              <h3>IA como soporte probatorio en el sistema judicial</h3>
+              <p>Prof. Olga Alcántara analiza las aplicaciones de IA en procesos legales.</p>
+              <span class="read-more" style="font-size:.78rem">Leer más <span>→</span></span>
+            </div>
+          </div>
+          <div class="news-item" onclick="showPage('noticias')">
+            <div class="news-thumb"><img src="https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d?w=300&q=75" alt="" loading="lazy"/></div>
+            <div class="news-meta">
+              <div class="news-category">Entrevista</div>
+              <h3>SUNARP: Transformación digital con IA aplicada a Registros Públicos</h3>
+              <p>Entrevista al Superintendente Nacional Armando Miguel Subauste Bracesco.</p>
+              <span class="read-more" style="font-size:.78rem">Leer más <span>→</span></span>
+            </div>
+          </div>
+        </div>
+
+        <div class="press-section">
+          <p class="section-label">Notas de prensa, entrevistas</p>
+          <div class="press-grid">
+            <div class="press-main">
+              <div class="press-main-thumb"><img src="https://images.unsplash.com/photo-1478737270239-2f02b77fc618?w=500&q=75" alt="" loading="lazy"/></div>
+              <div class="press-tag">Entrevista</div>
+              <h3>Entrevista a María Paula Mora: Innovación legal e IA</h3>
+              <p>Hablamos sobre innovación legal, inteligencia artificial y el futuro de la profesión jurídica en un mundo cada vez más digitalizado.</p>
+              <span class="read-more" onclick="showPage('noticias')">Leer más <span>→</span></span>
+            </div>
+            <div class="press-list">
+              <div class="press-list-item"><div class="date">20 MAY 2025 <span class="badge">Nota de prensa</span></div><h4 onclick="showPage('noticias')">Tech &amp; Law y la Universidad X firman alianza para investigación conjunta</h4></div>
+              <div class="press-list-item"><div class="date">12 MAY 2025 <span class="badge">Nota de prensa</span></div><h4 onclick="showPage('congreso')">Lanzamiento oficial del LegalTech Global Forum 2025</h4></div>
+              <div class="press-list-item"><div class="date">04 SEP 2025 <span class="badge">Evento</span></div><h4 onclick="showPage('eventos')">CyberSpaceCamp 2025: IA &amp; Derecho – Repensando las reglas de juego</h4></div>
+              <div class="press-list-item"><div class="date">21 AGO 2025 <span class="badge">Taller</span></div><h4 onclick="showPage('eventos')">Workshop: Diseño de Tableros de Control para LegalTech</h4></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <aside class="sidebar">
+        <div class="sidebar-section">
+          <h4>Equipos</h4>
+          <p>Conoce los equipos que hacen posible Tech &amp; Law.</p>
+          <div class="team-list">
+            <div class="team-item" onclick="showPage('equipos')"><div class="team-icon">🎓</div><div class="team-item-text">Congreso Internacional</div><span class="team-arrow">→</span></div>
+            <div class="team-item" onclick="showPage('equipos')"><div class="team-icon">🗺️</div><div class="team-item-text">Mapeo LegalTech</div><span class="team-arrow">→</span></div>
+            <div class="team-item" onclick="showPage('equipos')"><div class="team-icon">📚</div><div class="team-item-text">Círculo Académico</div><span class="team-arrow">→</span></div>
+            <div class="team-item" onclick="showPage('equipos')"><div class="team-icon">📣</div><div class="team-item-text">Imagen y Difusión</div><span class="team-arrow">→</span></div>
+            <div class="team-item" onclick="showPage('equipos')"><div class="team-icon">⚙️</div><div class="team-item-text">Operación y Control</div><span class="team-arrow">→</span></div>
+          </div>
+          <span class="see-all" onclick="showPage('equipos')">Ver todos los equipos →</span>
+        </div>
+        <div class="sidebar-section">
+          <h4>Lo más leído</h4>
+          <div class="most-read-list">
+            <div class="most-read-item"><span class="most-read-num">01</span><h5 onclick="showPage('noticias')">¿Puede la IA reemplazar el razonamiento jurídico?</h5></div>
+            <div class="most-read-item"><span class="most-read-num">02</span><h5 onclick="showPage('noticias')">Protección de datos en América Latina: desafíos y avances</h5></div>
+            <div class="most-read-item"><span class="most-read-num">03</span><h5 onclick="showPage('noticias')">LegalTech en el sistema judicial: oportunidades reales</h5></div>
+            <div class="most-read-item"><span class="most-read-num">04</span><h5 onclick="showPage('noticias')">Ética algorítmica y sesgos en la toma de decisiones</h5></div>
+            <div class="most-read-item"><span class="most-read-num">05</span><h5 onclick="showPage('noticias')">El futuro del trabajo legal en la era digital</h5></div>
+          </div>
+        </div>
+        <div class="sidebar-cta">
+          <div class="eyebrow">Sé parte del cambio</div>
+          <h3>Únete a nuestro voluntariado</h3>
+          <p>Sé parte de una comunidad que construye el futuro del derecho y la tecnología en el Perú.</p>
+          <span class="btn-accent" onclick="showPage('contacto')">QUIERO UNIRME</span>
+        </div>
+      </aside>
+    </div>
+  </main>
+</div>
+
+<!-- ==================== QUIÉNES SOMOS ==================== -->
+<div id="page-quienes" class="page">
+  <section class="page-hero">
+    <div class="container">
+      <div class="breadcrumb"><span onclick="showPage('home')">Inicio</span> / Quiénes somos</div>
+      <h1>Conectando derecho y tecnología para transformar el futuro</h1>
+      <p>Tech &amp; Law es el voluntariado de la Escuela de Derecho de la Universidad Científica del Sur que prepara a los estudiantes para enfrentar los desafíos del mundo digital.</p>
+    </div>
+  </section>
+  <main class="container" style="padding:52px 0">
+    <div class="two-col" style="margin-bottom:56px">
+      <div>
+        <p class="section-label">Nuestra misión</p>
+        <h2 style="font-size:1.45rem;font-weight:800;color:var(--navy);margin-bottom:14px">Preparar juristas del futuro</h2>
+        <p style="color:var(--muted);line-height:1.8;font-size:.92rem">Reconocemos la creciente intersección entre el derecho y la tecnología. Nuestra misión es preparar a los estudiantes de derecho para enfrentar los desafíos y aprovechar las oportunidades que surgen en un mundo cada vez más digitalizado, ofreciendo actividades extracurriculares, seminarios, talleres y conferencias de alto nivel.</p>
+      </div>
+      <div>
+        <p class="section-label">Nuestra visión</p>
+        <h2 style="font-size:1.45rem;font-weight:800;color:var(--navy);margin-bottom:14px">Liderar el ecosistema LegalTech en el Perú</h2>
+        <p style="color:var(--muted);line-height:1.8;font-size:.92rem">Ser el referente nacional en la formación de juristas con competencias digitales, capaces de liderar la innovación legal, contribuir al acceso a la justicia a través de la tecnología, y participar activamente en la regulación del entorno digital en el Perú y América Latina.</p>
+      </div>
+    </div>
+    <p class="section-label">Nuestros pilares</p>
+    <div class="value-grid">
+      <div class="value-card"><div class="icon">🔍</div><h3>Comprender</h3><p>Entender cómo la tecnología transforma la vida cotidiana y los marcos legales asociados, desde la IA hasta las criptomonedas.</p></div>
+      <div class="value-card"><div class="icon">💡</div><h3>Innovar</h3><p>Promover el pensamiento crítico e innovador en el derecho, fomentando la creatividad para abordar problemas jurídicos de naturaleza tecnológica.</p></div>
+      <div class="value-card"><div class="icon">🤝</div><h3>Participar</h3><p>Involucrarse en investigación interdisciplinaria y competencias de innovación, colaborando con profesionales de tecnología y firmas legales.</p></div>
+      <div class="value-card"><div class="icon">🚀</div><h3>Preparar</h3><p>Equipar a los estudiantes con experiencia práctica para carreras en entornos globalizados e impulsados por la tecnología.</p></div>
+      <div class="value-card"><div class="icon">⚖️</div><h3>Acceso a la justicia</h3><p>Usar la tecnología como herramienta para democratizar el acceso a la justicia y reducir las brechas legales en la sociedad.</p></div>
+      <div class="value-card"><div class="icon">🌍</div><h3>Perspectiva global</h3><p>Desarrollar análisis comparado internacional y participar en redes globales de innovación jurídica y LegalTech.</p></div>
+    </div>
+    <div class="divider"></div>
+    <p class="section-label">Áreas de investigación y trabajo</p>
+    <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:13px;margin-top:22px">
+      <div class="area-tag">Automatización legal y su impacto</div>
+      <div class="area-tag">Regulación de IA y algoritmos</div>
+      <div class="area-tag">Ciberseguridad y derecho</div>
+      <div class="area-tag">Privacidad y protección de datos</div>
+      <div class="area-tag">Criptomonedas y activos digitales</div>
+      <div class="area-tag">Ética en tecnología legal</div>
+      <div class="area-tag">Derechos digitales</div>
+      <div class="area-tag">Resolución de disputas en línea</div>
+      <div class="area-tag">Propiedad intelectual digital</div>
+      <div class="area-tag">Emprendimiento LegalTech</div>
+    </div>
+    <div class="divider"></div>
+    <p class="section-label">Equipo de liderazgo</p>
+    <div class="team-cards">
+      <div class="team-card"><div class="team-card-img">👤</div><div class="team-card-body"><h3>Andrés Dulanto</h3><div class="role">Decano, Escuela de Derecho</div><p>Ex Uber Litigation &amp; Regulatory Counsel. Experto en regulación de tecnología y derecho corporativo digital.</p></div></div>
+      <div class="team-card"><div class="team-card-img">👤</div><div class="team-card-body"><h3>Olga Alcántara</h3><div class="role">Coordinadora Tech &amp; Law</div><p>PhD en Derecho, Summa Cum Laude. Investigadora en IA, protección de datos y regulación digital.</p></div></div>
+      <div class="team-card"><div class="team-card-img">👤</div><div class="team-card-body"><h3>Carlos Acosta</h3><div class="role">Docente e Investigador</div><p>Múltiples maestrías en derecho digital, ciberseguridad y regulación de nuevas tecnologías.</p></div></div>
+      <div class="team-card"><div class="team-card-img">👤</div><div class="team-card-body"><h3>Alexander Miñope</h3><div class="role">Practicante e Investigador</div><p>Investigador de tesis en LegalTech y acceso a la justicia. Miembro destacado del voluntariado.</p></div></div>
+    </div>
+    <div class="divider"></div>
+    <p class="section-label">Nuestra historia</p>
+    <div>
+      <div class="timeline-item"><div class="timeline-year">2022</div><div class="timeline-content"><h3>Fundación del voluntariado</h3><p>Nace Tech &amp; Law en la Escuela de Derecho de la Universidad Científica del Sur, con el objetivo de preparar juristas para la era digital.</p></div></div>
+      <div class="timeline-item"><div class="timeline-year">2023</div><div class="timeline-content"><h3>I Congreso Tech &amp; Law</h3><p>Primer congreso nacional sobre tecnología y derecho, reuniendo expertos de universidades y empresas líderes del sector.</p></div></div>
+      <div class="timeline-item"><div class="timeline-year">Sep 2024</div><div class="timeline-content"><h3>II Congreso Internacional Tech &amp; Law</h3><p>Congreso internacional con más de 200 asistentes. Forum sobre economías colaborativas con ejecutivos de Rappi y Uber.</p></div></div>
+      <div class="timeline-item"><div class="timeline-year">2025</div><div class="timeline-content"><h3>LegalTech Global Forum 2025 &amp; CyberSpaceCamp</h3><p>Consolidación como referente nacional. Co-organización del CyberSpaceCamp con ITechLaw y Niubox. Publicaciones en medios de alcance nacional.</p></div></div>
+    </div>
+  </main>
+</div>
+
+<!-- ==================== EQUIPOS ==================== -->
+<div id="page-equipos" class="page">
+  <section class="page-hero">
+    <div class="container">
+      <div class="breadcrumb"><span onclick="showPage('home')">Inicio</span> / Equipos</div>
+      <h1>Los equipos que hacen posible Tech &amp; Law</h1>
+      <p>Somos una comunidad de estudiantes de derecho organizados en equipos especializados que trabajan juntos para transformar el ecosistema legal.</p>
+    </div>
+  </section>
+  <main class="container" style="padding:52px 0">
+    <p class="section-label">Nuestros 5 equipos</p>
+    <div class="two-col">
+      <div class="equipo-card">
+        <div class="equipo-header"><div class="equipo-icon-big">🎓</div><div><h2>Congreso Internacional</h2><p>Organización y producción de eventos académicos de alto nivel</p></div></div>
+        <div class="equipo-body"><p>Planifican, organizan y ejecutan el LegalTech Global Forum y otros eventos académicos. Coordinan ponentes, logística, alianzas estratégicas y la experiencia de los asistentes.</p>
+          <div class="equipo-activity">Gestión de ponentes nacionales e internacionales</div>
+          <div class="equipo-activity">Coordinación logística de eventos presenciales y virtuales</div>
+          <div class="equipo-activity">Alianzas con universidades y organizaciones internacionales</div>
+          <div class="equipo-activity">Diseño del programa académico y temario</div>
+          <div class="equipo-activity">Gestión de auspicios y patrocinadores</div>
+        </div>
+      </div>
+      <div class="equipo-card">
+        <div class="equipo-header"><div class="equipo-icon-big">🗺️</div><div><h2>Mapeo LegalTech</h2><p>Investigación y análisis del ecosistema LegalTech en el Perú</p></div></div>
+        <div class="equipo-body"><p>Investigan y mapean el ecosistema de tecnología legal en el Perú y América Latina. Identifican startups, herramientas, regulaciones y tendencias que transforman la práctica jurídica.</p>
+          <div class="equipo-activity">Mapeo de startups y herramientas LegalTech en Perú</div>
+          <div class="equipo-activity">Análisis comparado de regulación tecnológica regional</div>
+          <div class="equipo-activity">Publicación del Observatorio de Tecnología y Derecho</div>
+          <div class="equipo-activity">Entrevistas a actores clave del ecosistema</div>
+          <div class="equipo-activity">Informes trimestrales de tendencias</div>
+        </div>
+      </div>
+      <div class="equipo-card">
+        <div class="equipo-header"><div class="equipo-icon-big">📚</div><div><h2>Círculo Académico</h2><p>Investigación, publicaciones y formación intelectual</p></div></div>
+        <div class="equipo-body"><p>El corazón investigador de Tech &amp; Law. Sus miembros desarrollan artículos, tesis y publicaciones, participando en jornadas académicas nacionales e internacionales.</p>
+          <div class="equipo-activity">Producción de artículos académicos y ensayos jurídicos</div>
+          <div class="equipo-activity">Boletín mensual Tech &amp; Law</div>
+          <div class="equipo-activity">Organización de talleres y webinars formativos</div>
+          <div class="equipo-activity">Participación en jornadas latinoamericanas</div>
+          <div class="equipo-activity">Apoyo en tesis sobre LegalTech y derecho digital</div>
+        </div>
+      </div>
+      <div class="equipo-card">
+        <div class="equipo-header"><div class="equipo-icon-big">📣</div><div><h2>Imagen y Difusión</h2><p>Comunicación, branding y presencia digital del voluntariado</p></div></div>
+        <div class="equipo-body"><p>Gestiona la identidad visual, redes sociales, página web y toda la comunicación externa de Tech &amp; Law. Responsables de hacer crecer la comunidad y amplificar el impacto.</p>
+          <div class="equipo-activity">Gestión de redes sociales (Instagram, LinkedIn, X)</div>
+          <div class="equipo-activity">Diseño gráfico y producción de contenido visual</div>
+          <div class="equipo-activity">Estrategia de comunicación y relaciones públicas</div>
+          <div class="equipo-activity">Cobertura fotográfica y audiovisual de eventos</div>
+          <div class="equipo-activity">Mantenimiento y actualización del sitio web</div>
+        </div>
+      </div>
+    </div>
+    <div class="equipo-card">
+      <div class="equipo-header"><div class="equipo-icon-big">⚙️</div><div><h2>Operación y Control</h2><p>Gestión interna, coordinación y sostenibilidad del voluntariado</p></div></div>
+      <div class="equipo-body" style="display:grid;grid-template-columns:1fr 1fr;gap:28px">
+        <p style="padding-top:18px;margin-bottom:0">Garantizan el funcionamiento eficiente del voluntariado. Coordinan la incorporación de nuevos miembros, el seguimiento de proyectos y el cumplimiento de los objetivos institucionales.</p>
+        <div style="padding-top:18px">
+          <div class="equipo-activity">Proceso de selección e incorporación de voluntarios</div>
+          <div class="equipo-activity">Seguimiento y control de proyectos activos</div>
+          <div class="equipo-activity">Gestión de alianzas institucionales y convenios</div>
+          <div class="equipo-activity">Coordinación interdepartamental entre equipos</div>
+          <div class="equipo-activity">Planificación estratégica y reportes de gestión</div>
+        </div>
+      </div>
+    </div>
+    <div class="join-banner">
+      <h2>¿En qué equipo quieres estar?</h2>
+      <p>Somos estudiantes de derecho construyendo el futuro legal del Perú. Únete al equipo que más conecte con tus intereses.</p>
+      <span class="btn-primary" onclick="showPage('contacto')" style="font-size:.9rem;padding:13px 28px">POSTULAR AHORA</span>
+    </div>
+  </main>
+</div>
+
+<!-- ==================== PROYECTOS ==================== -->
+<div id="page-proyectos" class="page">
+  <section class="page-hero">
+    <div class="container">
+      <div class="breadcrumb"><span onclick="showPage('home')">Inicio</span> / Proyectos</div>
+      <h1>Proyectos e iniciativas de investigación</h1>
+      <p>Desarrollamos investigación aplicada, mapeos, publicaciones y herramientas que impulsan el ecosistema LegalTech en el Perú y América Latina.</p>
+    </div>
+  </section>
+  <main class="container" style="padding:52px 0">
+    <p class="section-label">Proyectos activos</p>
+    <div class="projects-grid" style="margin-bottom:52px">
+      <div class="project-card"><div class="project-img"><img src="https://images.unsplash.com/photo-1518770660439-4636190af475?w=500&q=75" alt="" loading="lazy"/></div><div class="project-body"><span class="project-status status-active">Activo</span><h3>Observatorio de Tecnología y Derecho</h3><p>Plataforma de investigación y análisis del impacto de la tecnología en el sistema jurídico peruano. Reportes trimestrales, entrevistas y análisis regulatorio comparado.</p><div class="project-team"><span>Equipo:</span><span class="team-tag">Mapeo LegalTech</span><span class="team-tag">Círculo Académico</span></div></div></div>
+      <div class="project-card"><div class="project-img"><img src="https://images.unsplash.com/photo-1589829085413-56de8ae18c73?w=500&q=75" alt="" loading="lazy"/></div><div class="project-body"><span class="project-status status-active">Activo</span><h3>Análisis de la Regulación de IA en el Perú</h3><p>Marco normativo de la inteligencia artificial en el Perú, comparado con regulaciones de la UE, Chile y Colombia. Participación en el grupo de trabajo del Congreso de la República.</p><div class="project-team"><span>Equipo:</span><span class="team-tag">Círculo Académico</span></div></div></div>
+      <div class="project-card"><div class="project-img"><img src="https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=500&q=75" alt="" loading="lazy"/></div><div class="project-body"><span class="project-status status-active">Activo</span><h3>Mapa del Ecosistema LegalTech Peruano 2025</h3><p>Directorio completo y análisis de las startups, herramientas y servicios de tecnología legal disponibles en el Perú, categorizado por área de práctica.</p><div class="project-team"><span>Equipo:</span><span class="team-tag">Mapeo LegalTech</span></div></div></div>
+      <div class="project-card"><div class="project-img"><img src="https://images.unsplash.com/photo-1563986768609-322da13575f3?w=500&q=75" alt="" loading="lazy"/></div><div class="project-body"><span class="project-status status-active">Activo</span><h3>Protección de Datos Personales en Plataformas Digitales</h3><p>Análisis jurídico del cumplimiento de la Ley 29733 por plataformas digitales en el Perú. Evaluación de políticas de privacidad, consentimiento y transferencia internacional de datos.</p><div class="project-team"><span>Equipo:</span><span class="team-tag">Círculo Académico</span><span class="team-tag">Mapeo LegalTech</span></div></div></div>
+      <div class="project-card"><div class="project-img" style="font-size:2.5rem">📊</div><div class="project-body"><span class="project-status status-upcoming">Próximamente</span><h3>Dashboard LegalTech para Acceso a la Justicia</h3><p>Herramienta de Business Intelligence que visualiza indicadores de acceso a la justicia en el Perú, tiempos procesales y uso de tecnología en juzgados.</p><div class="project-team"><span>Equipo:</span><span class="team-tag">Mapeo LegalTech</span><span class="team-tag">Operación y Control</span></div></div></div>
+      <div class="project-card"><div class="project-img" style="font-size:2.5rem">📰</div><div class="project-body"><span class="project-status status-active">Activo</span><h3>Boletín Mensual Tech &amp; Law</h3><p>Publicación mensual con las noticias, investigaciones, eventos y oportunidades más relevantes del ecosistema LegalTech peruano y latinoamericano.</p><div class="project-team"><span>Equipo:</span><span class="team-tag">Círculo Académico</span><span class="team-tag">Imagen y Difusión</span></div></div></div>
+    </div>
+    <p class="section-label">Proyectos completados</p>
+    <div class="projects-grid">
+      <div class="project-card"><div class="project-img"><img src="https://images.unsplash.com/photo-1540575467063-178a50c2df87?w=500&q=75" alt="" loading="lazy"/></div><div class="project-body"><span class="project-status status-completed">Completado · Sep 2024</span><h3>II Congreso Internacional Tech &amp; Law</h3><p>Congreso internacional realizado en setiembre de 2024 con más de 200 asistentes. Forum sobre economías colaborativas con ejecutivos de Rappi y Uber.</p><div class="project-team"><span>Equipo:</span><span class="team-tag">Congreso Internacional</span></div></div></div>
+      <div class="project-card"><div class="project-img"><img src="https://images.unsplash.com/photo-1488229297570-58520851e868?w=500&q=75" alt="" loading="lazy"/></div><div class="project-body"><span class="project-status status-completed">Completado · Sep 2025</span><h3>CyberSpaceCamp 2025</h3><p>Co-organizado con ITechLaw y Niubox. Tema: "IA &amp; Derecho: Repensando las reglas de juego". Talleres prácticos, hackathon legal y networking.</p><div class="project-team"><span>Equipo:</span><span class="team-tag">Congreso Internacional</span><span class="team-tag">Mapeo LegalTech</span></div></div></div>
+      <div class="project-card"><div class="project-img" style="font-size:2.5rem">🔬</div><div class="project-body"><span class="project-status status-completed">Completado · 2024</span><h3>Investigación: IA como Soporte Probatorio</h3><p>Publicada en el Suplemento Legal de El Peruano. Analiza el uso de IA para documentación masiva en procesos de enforcement. Autoría: Prof. Olga Alcántara.</p><div class="project-team"><span>Equipo:</span><span class="team-tag">Círculo Académico</span></div></div></div>
+    </div>
+  </main>
+</div>
+
+<!-- ==================== EVENTOS ==================== -->
+<div id="page-eventos" class="page">
+  <section class="page-hero">
+    <div class="container">
+      <div class="breadcrumb"><span onclick="showPage('home')">Inicio</span> / Eventos</div>
+      <h1>Eventos, seminarios y talleres</h1>
+      <p>Mantente al día con las actividades académicas de Tech &amp; Law: congresos, webinars, workshops y foros sobre derecho y tecnología.</p>
+    </div>
+  </section>
+  <main class="container" style="padding:52px 0">
+    <p class="section-label">Próximos eventos</p>
+    <div class="event-card">
+      <div class="event-date-box"><div class="month">2025</div><div class="day" style="font-size:1.2rem;padding:4px 0">TBD</div><div class="year">Lima</div></div>
+      <div class="event-info"><h3>LegalTech Global Forum 2025</h3><p>El congreso internacional de referencia sobre innovación jurídica y tecnología legal en el Perú. Ponentes nacionales e internacionales, paneles, talleres y networking.</p><div class="event-tags"><span class="event-tag red">Congreso</span><span class="event-tag green">Inscripciones abiertas</span><span class="event-tag">Presencial</span></div></div>
+      <div class="event-action"><button class="btn-sm primary" onclick="showPage('congreso')">Ver detalles</button><button class="btn-sm outline" onclick="showPage('contacto')">Inscribirse</button></div>
+    </div>
+    <div class="event-card">
+      <div class="event-date-box" style="background:var(--blue)"><div class="month">Mar</div><div class="day">15</div><div class="year">2026</div></div>
+      <div class="event-info"><h3>Webinar: Spam Telefónico y Protección de Datos</h3><p>Conversatorio con Kattya Palacios, especialista en vigilancia. Regulación de comunicaciones comerciales y protección de datos personales en el Perú.</p><div class="event-tags"><span class="event-tag">Webinar</span><span class="event-tag green">Gratuito</span><span class="event-tag">Virtual</span></div></div>
+      <div class="event-action"><button class="btn-sm primary" onclick="showPage('contacto')">Registrarse</button></div>
+    </div>
+    <div class="event-card">
+      <div class="event-date-box" style="background:var(--blue)"><div class="month">Abr</div><div class="day">08</div><div class="year">2026</div></div>
+      <div class="event-info"><h3>Taller: IA y Razonamiento Algorítmico en el Derecho</h3><p>Sesión práctica sobre el impacto de la IA en la formación jurídica. Aprende a usar herramientas de IA en la práctica legal de manera ética y eficiente.</p><div class="event-tags"><span class="event-tag">Taller</span><span class="event-tag green">Gratuito para miembros</span><span class="event-tag">Híbrido</span></div></div>
+      <div class="event-action"><button class="btn-sm primary" onclick="showPage('contacto')">Registrarse</button></div>
+    </div>
+
+    <p class="section-label" style="margin-top:44px">Eventos anteriores</p>
+    <div class="event-card" style="opacity:.8">
+      <div class="event-date-box" style="background:#4b5563"><div class="month">Sep</div><div class="day">04</div><div class="year">2025</div></div>
+      <div class="event-info"><h3>CyberSpaceCamp 2025: IA &amp; Derecho</h3><p>Co-organizado con ITechLaw y Niubox. Hackathon legal, talleres prácticos y networking especializado.</p><div class="event-tags"><span class="event-tag">Hackathon</span><span class="event-tag">Presencial</span></div></div>
+      <div class="event-action"><span class="past-label">Finalizado</span></div>
+    </div>
+    <div class="event-card" style="opacity:.8">
+      <div class="event-date-box" style="background:#4b5563"><div class="month">Ago</div><div class="day">21</div><div class="year">2025</div></div>
+      <div class="event-info"><h3>Workshop: Diseño de Tableros de Control para LegalTech</h3><p>Taller práctico sobre Business Intelligence aplicado a la gestión de datos legales.</p><div class="event-tags"><span class="event-tag">Taller</span><span class="event-tag">Presencial</span></div></div>
+      <div class="event-action"><span class="past-label">Finalizado</span></div>
+    </div>
+    <div class="event-card" style="opacity:.8">
+      <div class="event-date-box" style="background:#4b5563"><div class="month">Sep</div><div class="day">12</div><div class="year">2024</div></div>
+      <div class="event-info"><h3>II Congreso Internacional Tech &amp; Law</h3><p>Más de 200 asistentes. Forum sobre economías colaborativas con ejecutivos de Rappi y Uber. Ponentes de Argentina, Colombia, México y España.</p><div class="event-tags"><span class="event-tag">Congreso</span><span class="event-tag">Presencial</span></div></div>
+      <div class="event-action"><span class="past-label">Finalizado</span></div>
+    </div>
+  </main>
+</div>
+
+<!-- ==================== NOTICIAS ==================== -->
+<div id="page-noticias" class="page">
+  <section class="page-hero">
+    <div class="container">
+      <div class="breadcrumb"><span onclick="showPage('home')">Inicio</span> / Noticias</div>
+      <h1>Noticias, artículos y publicaciones</h1>
+      <p>Mantente informado sobre las últimas tendencias en derecho digital, LegalTech, regulación de IA y protección de datos.</p>
+    </div>
+  </section>
+  <main class="container" style="padding:52px 0">
+    <div class="filter-bar">
+      <button class="filter-btn active">Todos</button>
+      <button class="filter-btn">Investigación</button>
+      <button class="filter-btn">Entrevistas</button>
+      <button class="filter-btn">Boletín mensual</button>
+      <button class="filter-btn">Regulación</button>
+    </div>
+    <div class="featured-article">
+      <div class="article-thumb"><img src="https://images.unsplash.com/photo-1507679799987-c73779587ccf?w=700&q=80" alt="" loading="lazy"/></div>
+      <div class="article-body"><div class="article-cat">Investigación · Feb 2026</div><h3>IA como soporte probatorio en el sistema judicial peruano</h3><p>La profesora Olga Alcántara analiza en el Suplemento Legal de El Peruano las aplicaciones de la IA para documentación masiva en procesos de enforcement. Un análisis profundo de las implicancias jurídicas y éticas.</p><div class="article-footer"><span>Olga Alcántara · 8 min</span><span class="read-more-sm">Leer más →</span></div></div>
+    </div>
+    <p class="section-label">Publicaciones recientes</p>
+    <div class="news-grid">
+      <div class="article-card"><div class="article-thumb"><img src="https://clac.cientifica.edu.pe/wp-content/uploads/2025/11/Captura-de-Pantalla-2025-11-19-a-las-18.01.05.png" alt="Mapeo LegalTech" loading="lazy"/></div><div class="article-body"><div class="article-cat">Boletín mensual · May 2025</div><h3>Boletín Tech &amp; Law – Mayo 2025</h3><p>Resumen de actividades, logros y oportunidades del mes. Congreso LegalTech, nuevas alianzas y convocatorias abiertas.</p><div class="article-footer"><span>Mayo 2025</span><span class="read-more-sm">Leer más →</span></div></div></div>
+      <div class="article-card"><div class="article-thumb"><img src="https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d?w=400&q=75" alt="" loading="lazy"/></div><div class="article-body"><div class="article-cat">Entrevista · Oct 2025</div><h3>SUNARP: Transformación digital con IA aplicada a Registros Públicos</h3><p>Entrevista exclusiva con el Superintendente Nacional sobre la modernización de los Registros Públicos del Perú.</p><div class="article-footer"><span>Oct 2025 · 5 min</span><span class="read-more-sm">Leer más →</span></div></div></div>
+      <div class="article-card"><div class="article-thumb"><img src="https://images.unsplash.com/photo-1550751827-4bd374c3f58b?w=400&q=75" alt="" loading="lazy"/></div><div class="article-body"><div class="article-cat">Entrevista · Mar 2026</div><h3>El crecimiento del spam telefónico y su impacto en la protección de datos</h3><p>Conversación con Kattya Palacios, especialista en vigilancia, sobre regulación de comunicaciones comerciales.</p><div class="article-footer"><span>Mar 2026 · 6 min</span><span class="read-more-sm">Leer más →</span></div></div></div>
+      <div class="article-card"><div class="article-thumb"><img src="https://images.unsplash.com/photo-1555949963-ff9fe0c870eb?w=400&q=75" alt="" loading="lazy"/></div><div class="article-body"><div class="article-cat">Investigación</div><h3>¿Puede la IA reemplazar el razonamiento jurídico?</h3><p>Análisis crítico sobre las capacidades y limitaciones de los modelos de lenguaje en la interpretación y aplicación del derecho.</p><div class="article-footer"><span>10 min</span><span class="read-more-sm">Leer más →</span></div></div></div>
+      <div class="article-card"><div class="article-thumb"><img src="https://images.unsplash.com/photo-1563986768609-322da13575f3?w=400&q=75" alt="" loading="lazy"/></div><div class="article-body"><div class="article-cat">Investigación</div><h3>Protección de datos en América Latina: desafíos y avances</h3><p>Panorama comparado de los marcos regulatorios en Brasil, Argentina, Chile, Colombia y Perú.</p><div class="article-footer"><span>9 min</span><span class="read-more-sm">Leer más →</span></div></div></div>
+      <div class="article-card"><div class="article-thumb"><img src="https://images.unsplash.com/photo-1450101499163-c8848c66ca85?w=400&q=75" alt="" loading="lazy"/></div><div class="article-body"><div class="article-cat">Investigación</div><h3>LegalTech en el sistema judicial: oportunidades reales</h3><p>Revisión de herramientas de tecnología legal implementadas en el Poder Judicial peruano y análisis de su efectividad.</p><div class="article-footer"><span>8 min</span><span class="read-more-sm">Leer más →</span></div></div></div>
+      <div class="article-card"><div class="article-thumb"><img src="https://images.unsplash.com/photo-1531746790731-6c087fecd65a?w=400&q=75" alt="" loading="lazy"/></div><div class="article-body"><div class="article-cat">Investigación</div><h3>Ética algorítmica y sesgos en la toma de decisiones legales</h3><p>Estudio de sesgos algorítmicos en sistemas de predicción de reincidencia y otras herramientas de IA en el sistema de justicia.</p><div class="article-footer"><span>11 min</span><span class="read-more-sm">Leer más →</span></div></div></div>
+      <div class="article-card"><div class="article-thumb"><img src="https://images.unsplash.com/photo-1497366216548-37526070297c?w=400&q=75" alt="" loading="lazy"/></div><div class="article-body"><div class="article-cat">Tendencias</div><h3>El futuro del trabajo legal en la era digital</h3><p>¿Qué habilidades necesitarán los abogados del futuro? Análisis de competencias digitales más demandadas.</p><div class="article-footer"><span>7 min</span><span class="read-more-sm">Leer más →</span></div></div></div>
+      <div class="article-card"><div class="article-thumb"><img src="https://images.unsplash.com/photo-1589829545856-d10d557cf95f?w=400&q=75" alt="" loading="lazy"/></div><div class="article-body"><div class="article-cat">Regulación · Jul 2025</div><h3>Análisis del Decreto Supremo 098-2025-PCM sobre gobierno digital</h3><p>Modificaciones al marco normativo del gobierno digital en el Perú y sus implicancias para el sector público y privado.</p><div class="article-footer"><span>Jul 2025 · 7 min</span><span class="read-more-sm">Leer más →</span></div></div></div>
+    </div>
+  </main>
+</div>
+
+<!-- ==================== CONGRESO ==================== -->
+<div id="page-congreso" class="page">
+  <section class="congress-hero">
+    <div class="container" style="position:relative;z-index:1">
+      <div class="breadcrumb" style="color:rgba(255,255,255,.5);font-size:.72rem;margin-bottom:14px"><span onclick="showPage('home')" style="cursor:pointer;color:rgba(255,255,255,.7)">Inicio</span> / Congreso LegalTech</div>
+      <div class="congress-badge">Congreso Internacional</div>
+      <h1>LegalTech<br><em>Global Forum</em><br>2025</h1>
+      <p>El encuentro más importante del ecosistema jurídico digital en el Perú. Líderes en innovación jurídica y LegalTech reunidos para redefinir el futuro del derecho.</p>
+      <div style="display:flex;gap:14px;flex-wrap:wrap">
+        <span class="btn-accent" onclick="showPage('contacto')" style="padding:13px 28px;font-size:.88rem">INSCRÍBETE AHORA</span>
+        <a href="#prog" style="display:inline-block;border:2px solid rgba(255,255,255,.5);color:#fff;font-weight:700;font-size:.88rem;padding:11px 24px;border-radius:4px;transition:all .2s" onmouseover="this.style.background='rgba(255,255,255,.1)'" onmouseout="this.style.background='transparent'">Ver programa</a>
+      </div>
+      <div class="congress-meta">
+        <div class="congress-meta-item"><span>📅</span><span><strong>2025</strong> – Lima, Perú</span></div>
+        <div class="congress-meta-item"><span>🏛️</span><span><strong>Universidad Científica del Sur</strong></span></div>
+        <div class="congress-meta-item"><span>👥</span><span><strong>+300</strong> asistentes esperados</span></div>
+        <div class="congress-meta-item"><span>🌎</span><span>Ponentes <strong>nacionales e internacionales</strong></span></div>
+      </div>
+    </div>
+  </section>
+  <main class="container" style="padding:52px 0">
+    <div class="stats-bar" style="margin:0 0 44px">
+      <div class="stats-grid">
+        <div><div class="stat-num">300+</div><div class="stat-label">Asistentes</div></div>
+        <div><div class="stat-num">20+</div><div class="stat-label">Ponentes</div></div>
+        <div><div class="stat-num">8</div><div class="stat-label">Países</div></div>
+        <div><div class="stat-num">2</div><div class="stat-label">Días</div></div>
+      </div>
+    </div>
+    <p class="section-label">Temas principales</p>
+    <div class="value-grid" style="margin-bottom:44px">
+      <div class="value-card"><div class="icon">🤖</div><h3>IA y razonamiento jurídico</h3><p>¿Puede la IA reemplazar o complementar el razonamiento jurídico? Impacto en la judicatura y la práctica legal.</p></div>
+      <div class="value-card"><div class="icon">🔐</div><h3>Protección de datos y privacidad</h3><p>Desafíos éticos y jurídicos en la era del big data. Consentimiento, explicabilidad y regulación comparada.</p></div>
+      <div class="value-card"><div class="icon">⚖️</div><h3>Acceso a la justicia digital</h3><p>LegalTech como herramienta para democratizar el acceso a la justicia y reducir brechas legales en América Latina.</p></div>
+      <div class="value-card"><div class="icon">🏛️</div><h3>Regulación y gobierno digital</h3><p>Marcos regulatorios para la transformación digital del Estado. Análisis del Decreto Supremo 098-2025-PCM.</p></div>
+      <div class="value-card"><div class="icon">💼</div><h3>Emprendimiento LegalTech</h3><p>Casos de éxito, modelos de negocio y el ecosistema de startups legales en el Perú y la región.</p></div>
+      <div class="value-card"><div class="icon">🌐</div><h3>Ciberseguridad y derecho</h3><p>Responsabilidad legal ante ciberataques y regulación de la seguridad digital.</p></div>
+    </div>
+    <p class="section-label">Ponentes destacados</p>
+    <div class="speakers-grid">
+      <div class="speaker-card"><div class="speaker-avatar">👤</div><h3>Andrés Dulanto</h3><p>Decano, Escuela de Derecho<br>Universidad Científica del Sur</p></div>
+      <div class="speaker-card"><div class="speaker-avatar">👤</div><h3>Olga Alcántara</h3><p>PhD en Derecho<br>Investigadora LegalTech</p></div>
+      <div class="speaker-card"><div class="speaker-avatar">👤</div><h3>Kattya Palacios</h3><p>Especialista en vigilancia<br>y protección de datos</p></div>
+      <div class="speaker-card"><div class="speaker-avatar">👤</div><h3>Armando M. Subauste</h3><p>Superintendente Nacional<br>SUNARP</p></div>
+      <div class="speaker-card"><div class="speaker-avatar">👤</div><h3>Ponente Internacional</h3><p>III Jornadas Latinoamericanas<br>de Derecho y Tecnología</p></div>
+      <div class="speaker-card"><div class="speaker-avatar">👤</div><h3>Representante ITechLaw</h3><p>International Technology<br>Law Association</p></div>
+    </div>
+    <div class="divider" id="prog"></div>
+    <p class="section-label">Programa tentativo</p>
+    <div class="two-col">
+      <div>
+        <h3 style="font-size:.95rem;font-weight:800;color:var(--navy);margin-bottom:14px;padding-bottom:7px;border-bottom:2px solid var(--blue)">Día 1 – Innovación y Regulación</h3>
+        <div class="agenda-item"><div class="agenda-time">9:00 am</div><div class="agenda-content"><h4>Inauguración oficial</h4><p>Palabras del Decano y autoridades de la Universidad Científica del Sur</p></div></div>
+        <div class="agenda-item"><div class="agenda-time">9:30 am</div><div class="agenda-content"><h4>Conferencia magistral: IA y el futuro del derecho</h4><p>¿Puede la IA reemplazar el razonamiento jurídico?</p></div></div>
+        <div class="agenda-item"><div class="agenda-time">11:00 am</div><div class="agenda-content"><h4>Panel: Regulación de IA en América Latina</h4><p>Perspectivas comparadas: Perú, Chile, Colombia y Brasil</p></div></div>
+        <div class="agenda-item"><div class="agenda-time">2:00 pm</div><div class="agenda-content"><h4>Taller: Diseño de tableros LegalTech</h4><p>Business Intelligence aplicado a la práctica legal</p></div></div>
+        <div class="agenda-item"><div class="agenda-time">4:00 pm</div><div class="agenda-content"><h4>Mesa redonda: Economías colaborativas y derecho</h4><p>Casos Uber, Rappi y plataformas digitales en el Perú</p></div></div>
+      </div>
+      <div>
+        <h3 style="font-size:.95rem;font-weight:800;color:var(--navy);margin-bottom:14px;padding-bottom:7px;border-bottom:2px solid var(--blue)">Día 2 – Acceso a la Justicia y LegalTech</h3>
+        <div class="agenda-item"><div class="agenda-time">9:00 am</div><div class="agenda-content"><h4>Conferencia: Protección de datos en el Perú</h4><p>Desafíos y avances en el marco del RGPD latinoamericano</p></div></div>
+        <div class="agenda-item"><div class="agenda-time">10:30 am</div><div class="agenda-content"><h4>Panel: LegalTech en el sistema judicial</h4><p>Oportunidades reales para mejorar el acceso a la justicia</p></div></div>
+        <div class="agenda-item"><div class="agenda-time">12:00 pm</div><div class="agenda-content"><h4>Presentación de investigaciones</h4><p>Proyectos del Círculo Académico Tech &amp; Law</p></div></div>
+        <div class="agenda-item"><div class="agenda-time">2:30 pm</div><div class="agenda-content"><h4>Demo Day: Startups LegalTech</h4><p>Presentación de emprendimientos jurídicos emergentes</p></div></div>
+        <div class="agenda-item"><div class="agenda-time">5:00 pm</div><div class="agenda-content"><h4>Ceremonia de cierre y networking</h4><p>Reconocimientos y oportunidades de conexión</p></div></div>
+      </div>
+    </div>
+    <div class="highlight-box">
+      <h3>¿Quieres participar en el LegalTech Global Forum 2025?</h3>
+      <p>Inscríbete como asistente, presenta tu investigación o sé parte del equipo organizador.</p>
+      <div style="display:flex;gap:14px;justify-content:center;flex-wrap:wrap">
+        <span class="btn-accent" onclick="showPage('contacto')" style="padding:13px 28px">INSCRÍBETE</span>
+        <span onclick="showPage('equipos')" style="display:inline-block;border:2px solid rgba(255,255,255,.4);color:#fff;font-weight:700;font-size:.88rem;padding:11px 24px;border-radius:4px;cursor:pointer;transition:all .2s" onmouseover="this.style.background='rgba(255,255,255,.1)'" onmouseout="this.style.background='transparent'">ÚNETE AL EQUIPO</span>
+      </div>
+    </div>
+  </main>
+</div>
+
+<!-- ==================== CONTACTO ==================== -->
+<div id="page-contacto" class="page">
+  <section class="page-hero">
+    <div class="container">
+      <div class="breadcrumb"><span onclick="showPage('home')">Inicio</span> / Contacto</div>
+      <h1>Únete al voluntariado o contáctanos</h1>
+      <p>¿Quieres ser parte de la comunidad que está transformando el derecho en el Perú? Completa el formulario y nos pondremos en contacto contigo.</p>
+    </div>
+  </section>
+  <main class="container" style="padding-bottom:60px">
+    <div class="contact-layout">
+      <div>
+        <div class="form-card">
+          <h2>Formulario de postulación / contacto</h2>
+          <p>Completa todos los campos para unirte al voluntariado o enviarnos un mensaje. Respondemos en 2–3 días hábiles.</p>
+          <form id="contactForm" onsubmit="handleSubmit(event)">
+            <div class="form-row">
+              <div class="form-group"><label>Nombre *</label><input type="text" placeholder="Tu nombre" required/></div>
+              <div class="form-group"><label>Apellido *</label><input type="text" placeholder="Tu apellido" required/></div>
+            </div>
+            <div class="form-group"><label>Correo electrónico *</label><input type="email" placeholder="tucorreo@email.com" required/></div>
+            <div class="form-group"><label>Teléfono / WhatsApp</label><input type="tel" placeholder="+51 9XX XXX XXX"/></div>
+            <div class="form-group"><label>Ciclo / Año académico</label>
+              <select><option value="">Selecciona tu ciclo</option><option>1er ciclo</option><option>2do ciclo</option><option>3er ciclo</option><option>4to ciclo</option><option>5to ciclo</option><option>6to ciclo</option><option>7mo ciclo</option><option>8vo ciclo</option><option>9no ciclo</option><option>10mo ciclo</option><option>Egresado / Externo</option></select>
+            </div>
+            <div class="form-group"><label>Equipo de interés *</label>
+              <select required><option value="">Selecciona un equipo</option><option>Congreso Internacional</option><option>Mapeo LegalTech</option><option>Círculo Académico</option><option>Imagen y Difusión</option><option>Operación y Control</option><option>No estoy seguro/a – quiero saber más</option><option>Solo quiero enviar un mensaje</option></select>
+            </div>
+            <div class="form-group"><label>Motivación / Mensaje *</label><textarea placeholder="Cuéntanos por qué quieres unirte a Tech & Law y qué habilidades puedes aportar..." required></textarea></div>
+            <div class="form-group" style="display:flex;align-items:flex-start;gap:9px"><input type="checkbox" id="terms" required style="width:auto;margin-top:3px"/><label for="terms" style="font-size:.78rem;font-weight:400;color:var(--muted)">Acepto que mis datos sean utilizados para procesar mi postulación al voluntariado Tech &amp; Law de la Universidad Científica del Sur.</label></div>
+            <button type="submit" class="form-submit">ENVIAR POSTULACIÓN</button>
+            <p class="form-note">También puedes escribirnos a <strong>hola@techandlaw.org</strong></p>
+          </form>
+          <div class="success-msg" id="successMsg">
+            <div style="font-size:2rem;margin-bottom:9px">✅</div>
+            <h3 style="color:#065f46;margin-bottom:5px">¡Mensaje enviado!</h3>
+            <p style="color:#047857;font-size:.83rem">Gracias por tu interés en Tech &amp; Law. Nos pondremos en contacto contigo pronto.</p>
+          </div>
+        </div>
+      </div>
+      <div class="contact-sidebar">
+        <div class="info-card">
+          <h3>Información de contacto</h3>
+          <div class="info-item"><div class="info-icon">✉️</div><div><strong>Correo electrónico</strong><span>hola@techandlaw.org</span></div></div>
+          <div class="info-item"><div class="info-icon">🏛️</div><div><strong>Universidad Científica del Sur</strong><span>Escuela de Derecho<br>Lima, Perú</span></div></div>
+          <div class="info-item"><div class="info-icon">🌐</div><div><strong>Sitio institucional</strong><span><a href="https://clac.cientifica.edu.pe/iniciativa-tech-law/" target="_blank" rel="noopener" style="color:var(--blue-lt)">clac.cientifica.edu.pe</a></span></div></div>
+          <div class="info-item"><div class="info-icon">⏰</div><div><strong>Tiempo de respuesta</strong><span>2–3 días hábiles</span></div></div>
+        </div>
+        <div class="info-card">
+          <h3>¿Por qué unirte a Tech &amp; Law?</h3>
+          <div class="benefits-list">
+            <div class="benefit-item">Desarrolla habilidades en derecho digital y tecnología legal</div>
+            <div class="benefit-item">Accede a eventos exclusivos con expertos nacionales e internacionales</div>
+            <div class="benefit-item">Publica investigaciones y artículos de alto impacto</div>
+            <div class="benefit-item">Construye tu red de contactos en el ecosistema LegalTech</div>
+            <div class="benefit-item">Participa en proyectos reales de impacto social</div>
+            <div class="benefit-item">Obtén certificado de participación en el voluntariado</div>
+            <div class="benefit-item">Acceso a oportunidades de prácticas en tech-law</div>
+          </div>
+        </div>
+        <div style="background:linear-gradient(135deg,var(--navy),var(--blue));border-radius:10px;padding:28px;color:#fff;text-align:center">
+          <h3 style="font-size:1rem;font-weight:800;margin-bottom:9px">Síguenos en redes sociales</h3>
+          <p style="font-size:.8rem;color:rgba(255,255,255,.8);margin-bottom:18px;line-height:1.6">Mantente al tanto de todas nuestras actividades, publicaciones y convocatorias.</p>
+          <div style="display:flex;gap:9px;justify-content:center;flex-wrap:wrap">
+            <a href="#" style="display:inline-block;background:rgba(255,255,255,.15);border:1px solid rgba(255,255,255,.3);color:#fff;font-size:.76rem;font-weight:600;padding:7px 13px;border-radius:6px;transition:background .2s" onmouseover="this.style.background='rgba(255,255,255,.25)'" onmouseout="this.style.background='rgba(255,255,255,.15)'">Instagram</a>
+            <a href="#" style="display:inline-block;background:rgba(255,255,255,.15);border:1px solid rgba(255,255,255,.3);color:#fff;font-size:.76rem;font-weight:600;padding:7px 13px;border-radius:6px;transition:background .2s" onmouseover="this.style.background='rgba(255,255,255,.25)'" onmouseout="this.style.background='rgba(255,255,255,.15)'">LinkedIn</a>
+            <a href="#" style="display:inline-block;background:rgba(255,255,255,.15);border:1px solid rgba(255,255,255,.3);color:#fff;font-size:.76rem;font-weight:600;padding:7px 13px;border-radius:6px;transition:background .2s" onmouseover="this.style.background='rgba(255,255,255,.25)'" onmouseout="this.style.background='rgba(255,255,255,.15)'">Twitter / X</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+</div>
+
+<!-- FOOTER (shared) -->
+<footer class="site-footer">
+  <div class="container footer-grid">
+    <div class="footer-brand">
+      <div style="font-size:1.05rem;font-weight:800;color:#fff;letter-spacing:-.02em">TECH &amp; LAW</div>
+      <div style="font-size:.58rem;font-weight:600;color:rgba(255,255,255,.5);letter-spacing:.2em;text-transform:uppercase;margin-bottom:2px">VOLUNTARIADO</div>
+      <p>Conectamos el derecho y la tecnología para impulsar una sociedad más justa y preparada para el futuro.</p>
+      <div class="social-links">
+        <span class="social-link">IG</span>
+        <span class="social-link">in</span>
+        <span class="social-link">𝕏</span>
+        <span class="social-link">▶</span>
+      </div>
+    </div>
+    <div class="footer-col"><h5>Enlaces rápidos</h5><ul>
+      <li><span onclick="showPage('home')">Inicio</span></li>
+      <li><span onclick="showPage('quienes')">Quiénes somos</span></li>
+      <li><span onclick="showPage('equipos')">Equipos</span></li>
+      <li><span onclick="showPage('proyectos')">Proyectos</span></li>
+      <li><span onclick="showPage('eventos')">Eventos</span></li>
+      <li><span onclick="showPage('contacto')">Contacto</span></li>
+    </ul></div>
+    <div class="footer-col"><h5>Explora</h5><ul>
+      <li><span onclick="showPage('noticias')">Noticias</span></li>
+      <li><span onclick="showPage('noticias')">Boletín mensual</span></li>
+      <li><span onclick="showPage('congreso')">Congreso LegalTech</span></li>
+    </ul></div>
+    <div class="footer-col"><h5>Legal</h5><ul>
+      <li><a href="#">Términos y condiciones</a></li>
+      <li><a href="#">Política de privacidad</a></li>
+    </ul></div>
+    <div class="footer-col footer-contact"><h5>Contacto</h5>
+      <p>hola@techandlaw.org</p>
+      <p><strong>Universidad Científica del Sur</strong></p>
+      <p>Lima, Perú</p>
+      <p style="margin-top:10px"><a href="https://clac.cientifica.edu.pe/iniciativa-tech-law/" target="_blank" rel="noopener" style="color:rgba(255,255,255,.5);font-size:.76rem">clac.cientifica.edu.pe →</a></p>
+    </div>
+  </div>
+  <div class="footer-bottom container">
+    <span>© 2025 Tech &amp; Law Voluntariado. Todos los derechos reservados.</span>
+    <span>Universidad Científica del Sur – Escuela de Derecho</span>
+  </div>
+</footer>
+
+<script>
+// ── Page navigation ──────────────────────────────────────────
+function showPage(id) {
+  document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+  var el = document.getElementById('page-' + id);
+  if (el) { el.classList.add('active'); window.scrollTo({top:0, behavior:'smooth'}); }
+  document.querySelectorAll('.main-nav a[data-page]').forEach(a => {
+    a.classList.toggle('active', a.dataset.page === id);
+  });
+}
+
+// ── Mobile menu ───────────────────────────────────────────────
+function toggleMobile() {
+  document.getElementById('mobileNav').classList.toggle('open');
+}
+
+// ── Filter buttons ────────────────────────────────────────────
+document.querySelectorAll('.filter-btn').forEach(btn => {
+  btn.addEventListener('click', function() {
+    this.closest('.filter-bar').querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+    this.classList.add('active');
+  });
+});
+
+// ── Contact form ──────────────────────────────────────────────
+function handleSubmit(e) {
+  e.preventDefault();
+  document.getElementById('contactForm').style.display = 'none';
+  document.getElementById('successMsg').style.display = 'block';
+}
+
+// ── Counter animation ─────────────────────────────────────────
+var animated = false;
+var observer = new IntersectionObserver(function(entries) {
+  entries.forEach(function(entry) {
+    if (entry.isIntersecting && !animated) {
+      animated = true;
+      document.querySelectorAll('.stat-num[data-target]').forEach(function(el) {
+        var target = parseInt(el.dataset.target);
+        var suffix = el.dataset.suffix || '';
+        var start = Date.now();
+        var dur = 1400;
+        (function tick() {
+          var p = Math.min((Date.now()-start)/dur, 1);
+          var ease = 1 - Math.pow(1-p, 3);
+          el.textContent = Math.round(ease * target) + suffix;
+          if (p < 1) requestAnimationFrame(tick);
+        })();
+      });
+    }
+  });
+}, { threshold: 0.5 });
+var statsBar = document.querySelector('.stats-bar');
+if (statsBar) observer.observe(statsBar);
+</script>
+</body>
+</html>
